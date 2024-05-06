@@ -1,3 +1,7 @@
-{% for city in cities %}
-    <p>{{ city.name }}</p>
-{% endfor %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <h1>Home</h1>
+    {% for city in cities %}
+        {{ city }}
+    {% endfor %}

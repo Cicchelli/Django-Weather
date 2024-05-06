@@ -1,0 +1,15 @@
+{% extends 'base.html'}
+
+{% block title %}
+{{city}}
+{% endblock %}
+
+{% block content %}
+
+{% for weather in weathers %}
+
+{{weather}}
+
+{% endfor %}
+
+{% endblock %}
