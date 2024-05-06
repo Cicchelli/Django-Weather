@@ -1,7 +1,5 @@
-{% block title %} Home {% endblock %}
-
-{% block content %}
-    <h1>Home</h1>
-    {% for city in cities %}
-        {{ city }}
-    {% endfor %}
+{% for city in cities %}
+<a href="{% url 'city-weather' city.slugify %}">
+    <p>{{ city }}</p>
+</a>
+{% endfor %}

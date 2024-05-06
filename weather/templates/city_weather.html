@@ -1,15 +1,6 @@
-{% extends 'base.html'}
-
-{% block title %}
-{{city}}
-{% endblock %}
-
-{% block content %}
-
 {% for weather in weathers %}
 
-{{weather}}
-
+<a href="{% url 'weather-details' weather.city.slugify weather.date|date:'Y-m-d' %}">
+    <p>{{ weather }}</p>
+</a>
 {% endfor %}
-
-{% endblock %}
