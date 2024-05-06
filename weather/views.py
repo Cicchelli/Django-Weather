@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render
 
 # Create your views here.
@@ -18,3 +19,16 @@ def city_weather(request, city):
 
     context = {"city": queried_city, "weathers": weathers}
     return render(request, "city_weather.html", context)
+
+
+def weather_details(request, city, target):
+    city_name = f"{city.title().replace('-', ' ')}"
+    city_query = City.objects.get(name=city_name)
+    weather_date = date.fromisoformat(target)
+
+    city_weathers = DailyWeather.objects.get(
+        city=city_query, date=weather_date
+    )
+
+    context = {"weather": city_weathers}
+    return render(request, "weather_details.html", context)
